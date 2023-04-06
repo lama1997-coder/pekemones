@@ -29,7 +29,8 @@ class PekemonsRepositoryImpl extends PekemonsRepository {
         pokeIndex = min + rnd.nextInt(max - min);
         final result = await remoteDataSource.httpRequest(
             url: "api/v2/pokemon/$pokeIndex");
-        listPfBekemons.add(PekemonsModel.fromJson(result.data));
+        listPfBekemons
+            .add(PekemonsModel.fromJson(result.data ));
       }
       return Right(listPfBekemons);
     } on ServerException {

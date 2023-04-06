@@ -31,8 +31,7 @@ class RemoteDataSourceImp extends RemoteDataSource {
     try {
       final response = await client.get("${Urls.baseUrl}/$url");
       log("in get method ...${response}");
-      log("in get method ......${jsonEncode(response)}");
-      if (response.statusCode == 200) {
+      if (response!= null) {
         return response;
       }
     } on DioError catch (e) {

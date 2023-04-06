@@ -1,5 +1,5 @@
-
 part of 'main_page_import.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -8,9 +8,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
-
-@override
+  @override
   void initState() {
     // TODO: implement initState
     context.read<PekemonesBloc>().add(OnReloadChanged());
@@ -18,6 +16,20 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: ListView(
+          padding: EdgeInsets.all(10),
+          shrinkWrap: true,
+          children: [
+            Text(
+              "Wellcome to Pekemon Gallery",
+              style: TextStyle(color: Colors.white),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
