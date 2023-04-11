@@ -149,9 +149,12 @@ class _MainPageState extends State<MainPage> {
       widgetArray.add(Positioned(
         top: top,
         left: 100,
-        height: 250,
-        width: 250,
-        child: Image.network(data[i].sprites!.frontDefault ?? ""),
+        height: 100,
+        width: 100,
+        child: Container(
+            color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+                .withOpacity(1.0),
+            child: Image.network(data[i].sprites!.frontDefault ?? "")),
       ));
       top = top + 20;
     }
