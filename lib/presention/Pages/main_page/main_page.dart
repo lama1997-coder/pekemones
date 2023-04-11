@@ -116,11 +116,16 @@ class _MainPageState extends State<MainPage> {
                                                   "${state.result.length} Pokèmons\n in your\n Pokèdex"
                                                       .toString()),
                                         ),
-                                        ListView.builder(
-                                          itemCount: state.result.length,
-                                            itemBuilder: (context, index) {
-                                          return ;
-                                        })
+                                        //    state.result.every((element) => )
+
+                                        Expanded(
+                                          child: Container(
+                                            color: Colors.red,
+                                            child: Stack(
+                                              children: getStack(state.result),
+                                            ),
+                                          ),
+                                        )
                                       ],
                                     )
                                   : Container(),
@@ -134,5 +139,23 @@ class _MainPageState extends State<MainPage> {
         );
       },
     );
+  }
+
+  List<Widget> getStack(List<PekemonsModel> data) {
+    List<Widget> widgetArray = [];
+
+    double top = 20;
+    for (int i = 0; (i < data.length && i < 5); i++) {
+      widgetArray.add(Positioned(
+        top: top,
+        left: 100,
+        height: 250,
+        width: 250,
+        child: Image.network(data[i].sprites!.frontDefault ?? ""),
+      ));
+      top = top + 20;
+    }
+
+    return widgetArray;
   }
 }
