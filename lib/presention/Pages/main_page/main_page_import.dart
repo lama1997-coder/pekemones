@@ -14,5 +14,6 @@ import 'package:peko_application/presention/common/color.dart';
 import 'package:peko_application/presention/common/common_widget/widget_import.dart';
 
 import '../../common/res.dart';
+import 'widget/widget_import.dart';
 
 part 'main_page.dart';

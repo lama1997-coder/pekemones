@@ -1,6 +1,7 @@
 
 
 import 'package:equatable/equatable.dart';
+import 'package:peko_application/data/models/other.dart';
 
 class SpritesModel extends Equatable{
 
@@ -13,6 +14,7 @@ final  String? frontDefault;
 final  String? frontFemale;
 final  String? frontShiny;
 final  String? frontShinyFemale;
+final  Other? other;
 
  const SpritesModel({
    required this.backDefault,
@@ -23,6 +25,7 @@ final  String? frontShinyFemale;
   required  this.frontFemale,
   required  this.frontShiny,
   required  this.frontShinyFemale,
+  required this.other
   });
 
 
@@ -36,6 +39,7 @@ factory SpritesModel.fromJson(Map<String, dynamic> json) => SpritesModel(
     frontFemale:json['front_female'],
     frontShiny:json['front_shiny'],
     frontShinyFemale:json['front_shiny_female'],
+      other : json['other'] != null ? new Other.fromJson(json['other']) : null
       );
   @override
   List<Object?> get props => [

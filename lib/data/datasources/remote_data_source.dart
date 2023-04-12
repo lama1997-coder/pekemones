@@ -30,10 +30,8 @@ class RemoteDataSourceImp extends RemoteDataSource {
     
     try {
       final response = await client.get("${Urls.baseUrl}/$url");
-      log("in get method ...${response}");
-      if (response!= null) {
-        return response;
-      }
+      log("in get method ...$response");
+      return response;
     } on DioError catch (e) {
       if (e.response != null) {
         debugPrint('DioError: ${e.response?.statusMessage}');

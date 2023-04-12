@@ -25,18 +25,17 @@ class PekemonsRepositoryImpl extends PekemonsRepository {
       int min = 1;
       int max = 893;
       for (int i = 0; i < count; i++) {
-        rnd = new Random();
+        rnd =  Random();
         pokeIndex = min + rnd.nextInt(max - min);
         final result = await remoteDataSource.httpRequest(
             url: "api/v2/pokemon/$pokeIndex");
-        listPfBekemons
-            .add(PekemonsModel.fromJson(result.data ));
+        listPfBekemons.add(PekemonsModel.fromJson(result.data));
       }
       return Right(listPfBekemons);
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
 }

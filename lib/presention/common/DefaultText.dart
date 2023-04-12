@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DefaultText extends StatelessWidget {
   final String title;
@@ -42,13 +43,15 @@ class DefaultText extends StatelessWidget {
             textScaleFactor: 1,
             maxLines: maxLines ?? null,
             style: textStyle ??
-                TextStyle(
+            //GoogleFonts.gloriaHallelujah(),
+                  GoogleFonts.gloriaHallelujah(
                   color: color ?? Colors.white,
                   fontSize: size ?? 13,
                   letterSpacing: letterSpace,
                   wordSpacing: wordSpace,
                   decoration: decoration ?? TextDecoration.none,
                   fontWeight: fontWeight ?? FontWeight.w500,
+              
                 ),
             overflow: overflow,
           ),
